@@ -1,103 +1,110 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center">
+        <div className="absolute inset-0">
+          <div className="relative w-full h-full">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/hero-bg.jpg"
+              alt="Clean Life Curation"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+              quality={90}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/80 backdrop-blur-[2px]" />
+          </div>
+        </div>
+        <div className="container relative z-10 pt-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="heading-1 mb-8">
+              <span className="block text-[rgb(var(--text-primary-rgb))]">クリーンライフ</span>
+              <span className="block mt-2 text-[rgb(var(--text-secondary-rgb))]">キュレーション</span>
+            </h1>
+            <p className="paragraph max-w-2xl mx-auto mb-12">
+              清潔さや軽やかさを「価値観としての美意識」として再定義し、
+              <br className="hidden md:block" />
+              それに共感するアイテム・考え方・暮らしをキュレーションします。
+            </p>
+            <Link href="/about" className="button button-primary">
+              詳しく見る
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Section */}
+      <section className="py-24 bg-[rgb(var(--primary-rgb))]">
+        <div className="container">
+          <h2 className="heading-2 text-center mb-16">今月のキュレーション</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Featured Item 1 */}
+            <div className="card p-6">
+              <div className="relative w-full aspect-[4/3] mb-6 overflow-hidden rounded-lg">
+                <Image
+                  src="/images/featured-1.jpg"
+                  alt="Featured Item 1"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <h3 className="text-xl font-light mb-3 text-[rgb(var(--text-primary-rgb))]">透明な気持ちでいるために</h3>
+              <p className="text-[rgb(var(--text-secondary-rgb))]">日常の小さな気づきから生まれる、清らかな時間の過ごし方。</p>
+            </div>
+            {/* Featured Item 2 */}
+            <div className="card p-6">
+              <div className="relative w-full aspect-[4/3] mb-6 overflow-hidden rounded-lg">
+                <Image
+                  src="/images/featured-2.jpg"
+                  alt="Featured Item 2"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <h3 className="text-xl font-light mb-3 text-[rgb(var(--text-primary-rgb))]">整った暮らしの選択</h3>
+              <p className="text-[rgb(var(--text-secondary-rgb))]">自分らしい清潔感を追求する、モダンなライフスタイル。</p>
+            </div>
+            {/* Featured Item 3 */}
+            <div className="card p-6">
+              <div className="relative w-full aspect-[4/3] mb-6 overflow-hidden rounded-lg">
+                <Image
+                  src="/images/featured-3.jpg"
+                  alt="Featured Item 3"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <h3 className="text-xl font-light mb-3 text-[rgb(var(--text-primary-rgb))]">軽やかな毎日を</h3>
+              <p className="text-[rgb(var(--text-secondary-rgb))]">ストレスフリーな生活を実現する、シンプルなアイテムたち。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Instagram Section */}
+      <section className="py-24">
+        <div className="container text-center">
+          <h2 className="heading-2 mb-8">Instagram</h2>
+          <p className="paragraph text-[rgb(var(--text-secondary-rgb))] mb-12">
+            日常の清らかな瞬間を、
+            <br className="hidden md:block" />
+            Instagramでシェアしています。
+          </p>
+          <Link
+            href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
+            className="button button-primary"
           >
-            Read our docs
-          </a>
+            Instagramをフォロー
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
     </div>
   );
 }
